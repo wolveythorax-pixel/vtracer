@@ -105,6 +105,33 @@ Since `0.6`, [`vtracer`](https://pypi.org/project/vtracer/) is also packaged as 
 pip install vtracer
 ```
 
+### GIMP & Inkscape Plugins
+
+This fork includes plugins for popular image editors:
+
+- **GIMP 3.0+** - `Filters > VTracer > Vectorize to SVG...`
+- **Inkscape 1.0+** - `Extensions > VTracer > VTracer Vectorize`
+
+#### Quick Install
+
+1. Install the Python package:
+   ```sh
+   pip install vtracer
+   ```
+
+2. Copy plugins to your editor's extensions folder:
+   ```sh
+   # GIMP (Linux)
+   cp -r plugins/gimp/vtracer-vectorize ~/.config/GIMP/3.0/plug-ins/
+
+   # Inkscape (Linux)
+   cp plugins/inkscape/vtracer_vectorize.* ~/.config/inkscape/extensions/
+   ```
+
+3. Restart your editor
+
+See [plugins/README.md](plugins/README.md) for detailed installation instructions and usage guide.
+
 ## In the wild
 
 VTracer is used by the following products (open a PR to add yours):

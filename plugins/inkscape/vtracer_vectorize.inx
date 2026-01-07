@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+    <name>VTracer Vectorize</name>
+    <id>org.aetherhandmade.vtracer.vectorize</id>
+
+    <param name="tab" type="notebook">
+        <page name="options" gui-text="Options">
+            <param name="colormode" type="optiongroup" appearance="combo" gui-text="Color Mode:">
+                <option value="color">Color</option>
+                <option value="binary">Binary (Black &amp; White)</option>
+            </param>
+
+            <param name="filter_speckle" type="int" min="1" max="100" gui-text="Filter Speckle:">4</param>
+            <param name="filter_speckle_help" type="description">Discard patches smaller than this size (reduces noise)</param>
+
+            <param name="color_precision" type="int" min="1" max="256" gui-text="Color Precision:">8</param>
+            <param name="color_precision_help" type="description">Number of colors to use (lower = simpler, higher = more detail)</param>
+
+            <param name="corner_threshold" type="float" min="0" max="180" precision="1" gui-text="Corner Threshold:">60.0</param>
+            <param name="corner_threshold_help" type="description">Angle threshold for corner detection (degrees)</param>
+
+            <param name="length_threshold" type="float" min="0.5" max="10" precision="1" gui-text="Segment Length:">4.0</param>
+            <param name="length_threshold_help" type="description">Minimum curve segment length</param>
+
+            <param name="splice_threshold" type="float" min="0" max="180" precision="1" gui-text="Splice Threshold:">45.0</param>
+            <param name="splice_threshold_help" type="description">Angle threshold for splicing curves</param>
+
+            <param name="path_precision" type="int" min="1" max="8" gui-text="Path Precision:">2</param>
+            <param name="path_precision_help" type="description">SVG path coordinate precision (1=small file, 8=max detail)</param>
+        </page>
+
+        <page name="preset" gui-text="Presets">
+            <param name="preset" type="optiongroup" appearance="radio" gui-text="Quick Presets:">
+                <option value="custom">Custom (use Options tab)</option>
+                <option value="bw">Black &amp; White (logos, line art)</option>
+                <option value="poster">Poster (illustrations, limited colors)</option>
+                <option value="photo">Photo (full color, detailed)</option>
+            </param>
+        </page>
+
+        <page name="about" gui-text="About">
+            <param name="about_text" type="description" xml:space="preserve">
+VTracer Vectorize for Inkscape
+
+Converts raster images (PNG, JPG) to vector SVG graphics.
+
+Powered by VTracer - a fast, open-source image tracing library.
+
+GitHub: github.com/visioncortex/vtracer
+Enhanced by: AEther Handmade
+
+Installation:
+1. pip install vtracer
+2. Copy files to Inkscape extensions folder
+3. Restart Inkscape
+            </param>
+        </page>
+    </param>
+
+    <effect>
+        <object-type>all</object-type>
+        <effects-menu>
+            <submenu name="VTracer"/>
+        </effects-menu>
+    </effect>
+
+    <script>
+        <command location="inx" interpreter="python">vtracer_vectorize.py</command>
+    </script>
+</inkscape-extension>
